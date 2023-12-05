@@ -11,9 +11,9 @@
     <tbody>
       <ng-container *ngFor=" let result of results" >
         <tr>
-          <td data-label="Title">{{ result.title }} </td>
+          <td><a [href]="'http://en.wikipedia.org/?curid=' + result.pageid">{{ result.title }}</a> </td>
           <td data-label="Wordcount"> {{ result.wordcount }}</td>
-          <td data-label="Snippet">{{ result.snippet }}</td>
+          <td [innerHTML]="result.snippet"></td>
         </tr>
       </ng-container>
     </tbody>
