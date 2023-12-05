@@ -1,0 +1,21 @@
+<div class="ui container">
+  <h2> {{ results.length }} Results found!</h2>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Wordcount</th>
+        <th>Snippet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor=" let result of results" >
+        <tr>
+          <td data-label="Title">{{ result.title }} </td>
+          <td data-label="Wordcount"> {{ result.wordcount }}</td>
+          <td data-label="Snippet">{{ result.snippet }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
