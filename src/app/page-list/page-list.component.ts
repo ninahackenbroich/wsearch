@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PageListComponent {
 
   @Input() results: any[] = [];
+  @Input() term: string = '';
 
   constructor() { }
 

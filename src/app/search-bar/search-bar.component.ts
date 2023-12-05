@@ -15,7 +15,9 @@ export class SearchBarComponent implements OnInit {
 
   onFormSubmit(event: Event) {
     event.preventDefault();
+    const form = event.target as HTMLFormElement;
     this.submitted.emit(this.term);
+    form.reset();
   }
 
 }

@@ -10,6 +10,7 @@ import { query } from '@angular/animations';
 
 export class AppComponent {
   results: any[] = [];
+  term: string = '';
   constructor(private wikipediaService: WikipediaService) { }
 
   onTerm(term: string) {
@@ -17,8 +18,8 @@ export class AppComponent {
       next: (response: any) => {
         // Handle the response here
         console.log(response);
+        this.term = term;
         this.results = response.query.search;
-
       },
       error: (error) => {
         // Handle the error

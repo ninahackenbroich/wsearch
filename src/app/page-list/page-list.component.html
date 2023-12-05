@@ -1,5 +1,5 @@
 <div class="ui container">
-  <h2> {{ results.length }} Results found!</h2>
+  <h2 *ngIf="term"> {{ results.length }} Results found for "{{ term }}"!</h2>
   <table class="ui celled table">
     <thead>
       <tr>
