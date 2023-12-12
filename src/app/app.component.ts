@@ -15,11 +15,9 @@ export class AppComponent {
 
   onTerm(term: string) {
     this.wikipediaService.search(term).subscribe({
-      next: (response: any) => {
+      next: (response) => {
         // Handle the response here
-        console.log(response);
-        this.term = term;
-        this.results = response.query.search;
+        this.results = response;
       },
       error: (error) => {
         // Handle the error

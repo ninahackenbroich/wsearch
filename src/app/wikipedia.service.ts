@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import { pluck } from 'rxjs/operators';
 interface SearchResponse {
   query: {
-    search: Array<{ title: string }>;
+    search: {
+      title: string;
+      snippet: string;
+      pageid: number;
+    }[];
   };
 }
 
@@ -27,6 +30,9 @@ export class WikipediaService {
       origin: '*'
     };
 
-    return this.http.get(this.url, { params });
+    return this.http.get<SearchResponse>(this.url, { params })
+      .pipe(
+        pluck('query', 'search')
+      );
   }
 }
